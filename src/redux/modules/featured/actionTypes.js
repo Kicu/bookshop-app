@@ -1,0 +1,7 @@
+const featuredActionTypes = {
+    FETCH_FEATURED: 'FETCH_FEATURED',
+    FETCH_FEATURED_SUCCESS: 'FETCH_FEATURED_SUCCESS',
+    FETCH_FEATURED_ERROR: 'FETCH_FEATURED_ERROR'
+};
+
+export default featuredActionTypes;

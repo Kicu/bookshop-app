@@ -1,10 +1,10 @@
 import { createStore, combineReducers } from 'redux';
 
-const helloReducer = (state, action) => {
-    return 'helloWorld';
-};
+import featured from './modules/featured';
 
-const reducer = combineReducers({ hello: helloReducer });
+const reducer = combineReducers({
+    featured
+});
 
 const devtoolsEnhancer = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 

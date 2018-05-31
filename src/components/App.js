@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 
 import './App.css';
 
+import configureStore from '../redux/configureStore';
+
+const store = configureStore();
 
 class App extends Component {
   render() {

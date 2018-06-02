@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const categories = [
     { name: 'fantasy', label: 'Fantasy'},
@@ -14,7 +15,9 @@ class Categories extends Component {
             <div className="Categories">
                 <ul>
                     {categories.map(cat => (
-                        <li key={cat.name}>{cat.label}</li>
+                        <li key={cat.name}>
+                            <Link to={`/category/${cat.name}`}>{cat.label}</Link>
+                        </li>
                     ))}
                 </ul>
             </div>

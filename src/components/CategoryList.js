@@ -8,13 +8,19 @@ import Book from './Book';
 
 class CategoryList extends Component {
   componentDidMount() {
-      this.props.fetchByCategory('fantasy');
+      this.props.fetchByCategory(this.props.category);
+  }
+
+  componentWillReceiveProps(nextProps) {
+      if (nextProps.category !== this.props.category) {
+          this.props.fetchByCategory(nextProps.category);
+      }
   }
 
   render() {
       return (
           <div className="FeaturedList">
-              <div>{`Fantasy books:`}</div>
+              <div>{`${this.props.category} books:`}</div>
               <ul className="FeaturedList-list">
                   {this.props.books.map(book => (
                       <li className="FeaturedList-list-item"><Book {...book}/></li>
@@ -26,12 +32,15 @@ class CategoryList extends Component {
 }
 
 CategoryList.propTypes = {
+    category: PropTypes.string,
     books: PropTypes.array,
     fetchByCategory: PropTypes.func
 };
 
-function mapState(state) {
+function mapState(state, ownProps) {
+    const category = ownProps.match.params.category;
     return {
+        category,
         books: state.byCategory,
     }
 }

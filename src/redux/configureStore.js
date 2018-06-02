@@ -2,9 +2,11 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 
 import featuredReducer from './modules/featured';
+import byCategory from './modules/byCategory';
 
 const reducer = combineReducers({
     featured: featuredReducer
+    byCategory
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

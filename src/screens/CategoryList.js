@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { fetchByCategory } from '../redux/modules/byCategory';
-
-import Book from './Book';
+import { fetchByCategory } from '../redux/modules/byCategory/index';
+import BookList from '../components/BookList';
 
 class CategoryList extends Component {
   componentDidMount() {
@@ -21,11 +20,7 @@ class CategoryList extends Component {
       return (
           <div className="FeaturedList">
               <div>{`${this.props.category} books:`}</div>
-              <ul className="FeaturedList-list">
-                  {this.props.books.map(book => (
-                      <li className="FeaturedList-list-item"><Book {...book}/></li>
-                  ))}
-              </ul>
+              <BookList books={this.props.books} />
           </div>
       );
   }

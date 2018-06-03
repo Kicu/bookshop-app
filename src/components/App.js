@@ -5,9 +5,9 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import './App.css';
 
 import configureStore from '../redux/configureStore';
-import FeaturedList from './FeaturedList';
+import FeaturedList from '../screens/FeaturedList';
 import Categories from './Categories'
-import CategoryList from './CategoryList';
+import CategoryList from '../screens/CategoryList';
 
 const store = configureStore();
 

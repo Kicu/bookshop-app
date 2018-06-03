@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { fetchFeatured } from '../redux/modules/featured';
+import { fetchFeatured } from '../redux/modules/featured/index';
 
-import './FeaturedList.css';
-import Book from './Book';
+import BookList from '../components/BookList';
 
 class FeaturedList extends Component {
   componentDidMount() {
@@ -15,11 +14,7 @@ class FeaturedList extends Component {
   render() {
       return (
           <div className="FeaturedList">
-              <ul className="FeaturedList-list">
-                  {this.props.featured.map(book => (
-                      <li className="FeaturedList-list-item"><Book {...book}/></li>
-                  ))}
-              </ul>
+              <BookList books={this.props.featured} />
           </div>
       );
   }

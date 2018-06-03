@@ -1,0 +1,9 @@
+const SEARCH = 'SEARCH';
+const SEARCH_SUCCESS = 'SEARCH_SUCCESS';
+const SEARCH_ERROR = 'SEARCH_ERROR';
+
+export {
+    SEARCH,
+    SEARCH_SUCCESS,
+    SEARCH_ERROR
+}

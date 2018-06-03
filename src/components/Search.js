@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import { searchBooks } from '../redux/modules/search';
+
 import BookList from './BookList';
 
 class Search extends Component {
@@ -21,6 +23,10 @@ class Search extends Component {
         this.setState(() => ({
             searchTerm
         }));
+
+        if (searchTerm.length >= 3) {
+            this.props.searchBooks(searchTerm);
+        }
     }
 
 
@@ -39,17 +45,22 @@ class Search extends Component {
 }
 
 Search.propTypes = {
-    books: PropTypes.array
+    books: PropTypes.array,
+    searchBooks: PropTypes.func
 };
 
 function mapState(state) {
     return {
-        books: []
-    };
+        books: state.search
+    }
 }
+
+const mapDispatch = {
+    searchBooks
+};
 
 export default connect(
     mapState,
-    {}
+    mapDispatch
 )(Search);
 

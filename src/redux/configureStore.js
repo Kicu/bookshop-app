@@ -4,11 +4,13 @@ import thunk from 'redux-thunk';
 import featured from './modules/featured';
 import byCategory from './modules/byCategory';
 import search from './modules/search';
+import books from './modules/books';
 
 const reducer = combineReducers({
     featured,
     byCategory,
-    search
+    search,
+    books
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

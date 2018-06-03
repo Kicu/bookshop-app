@@ -9,4 +9,9 @@ function featuredReducer(state = [], action) {
     }
 }
 
+const getFeaturedBooks = (state) => state.featured;
+
 export default featuredReducer;
+export {
+    getFeaturedBooks
+}

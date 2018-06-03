@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { fetchByCategory } from '../redux/modules/byCategory/index';
+import { fetchByCategory, getBooksByCategory } from '../redux/modules/byCategory/index';
 import BookList from '../components/BookList';
 
 class CategoryList extends Component {
@@ -36,7 +36,7 @@ function mapState(state, ownProps) {
     const category = ownProps.match.params.category;
     return {
         category,
-        books: state.byCategory,
+        books: getBooksByCategory(state),
     }
 }
 

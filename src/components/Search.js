@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { searchBooks } from '../redux/modules/search';
+import { searchBooks, getSearchResults } from '../redux/modules/search';
 
 import BookList from './BookList';
 
@@ -51,7 +51,7 @@ Search.propTypes = {
 
 function mapState(state) {
     return {
-        books: state.search
+        books: getSearchResults(state)
     }
 }
 

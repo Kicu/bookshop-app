@@ -1,5 +1,8 @@
-import reducer from './reducer';
+import reducer, { getBooksByCategory } from './reducer';
 import { fetchByCategory } from './actions';
 
 export default reducer;
-export { fetchByCategory };
+export {
+    fetchByCategory,
+    getBooksByCategory
+};

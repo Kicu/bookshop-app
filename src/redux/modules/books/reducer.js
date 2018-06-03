@@ -14,4 +14,9 @@ function booksReducer(state = {}, action) {
     }
 }
 
+const getBooksByIds = (state, bookIds) => bookIds.map(bookId => state.books[bookId]);
+
 export default booksReducer;
+export {
+    getBooksByIds
+}

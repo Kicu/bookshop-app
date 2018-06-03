@@ -1,3 +1,5 @@
+import { getBooksByIds } from '../books'
+
 import { FETCH_FEATURED_SUCCESS } from './actionTypes';
 
 function featuredReducer(state = [], action) {
@@ -9,7 +11,7 @@ function featuredReducer(state = [], action) {
     }
 }
 
-const getFeaturedBooks = (state) => state.featured.map(bookId => state.books[bookId]);
+const getFeaturedBooks = (state) => getBooksByIds(state, state.featured);
 
 export default featuredReducer;
 export {

@@ -1,12 +1,10 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 
-import byCategory from './modules/byCategory';
 import search from './modules/search';
 import books from './modules/books';
 
 const reducer = combineReducers({
-    byCategory,
     search,
     books
 });

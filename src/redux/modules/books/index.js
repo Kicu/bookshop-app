@@ -1,9 +1,11 @@
-import reducer, { getBooksByIds, getFeaturedBooks } from './reducer';
-import { fetchFeatured } from '../books/actions';
+import reducer, { getBooksByIds, getFeaturedBooks, getBooksByCategory } from './reducer';
+import { fetchFeatured, fetchByCategory } from '../books/actions';
 
 export default reducer;
 export {
     fetchFeatured,
+    fetchByCategory,
     getBooksByIds,
-    getFeaturedBooks
+    getFeaturedBooks,
+    getBooksByCategory
 }

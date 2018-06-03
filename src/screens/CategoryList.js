@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { fetchByCategory, getBooksByCategory } from '../redux/modules/byCategory/index';
+import { fetchByCategory, getBooksByCategory } from '../redux/modules/books';
 import BookList from '../components/BookList';
 
 class CategoryList extends Component {

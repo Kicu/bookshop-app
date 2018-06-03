@@ -1,9 +1,12 @@
 import reducer, { getBasket } from './reducer';
-import { addToBasket, removeFromBasket} from './actions';
+import { addToBasket, removeFromBasket, loadBasketData } from './actions';
+import { basketStorageMiddleware } from './middleware';
 
 export default reducer;
 export {
     addToBasket,
     removeFromBasket,
-    getBasket
+    loadBasketData,
+    getBasket,
+    basketStorageMiddleware
 }

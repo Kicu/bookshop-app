@@ -1,4 +1,4 @@
-import { ADD_TO_BASKET, REMOVE_FROM_BASKET } from './actionTypes';
+import { ADD_TO_BASKET, REMOVE_FROM_BASKET, LOAD_BASKET_DATA } from './actionTypes';
 
 function basketReducer(state = [], action) {
     switch (action.type) {
@@ -31,7 +31,12 @@ function basketReducer(state = [], action) {
             }
 
             return state;
+        case LOAD_BASKET_DATA:
+            if (action.payload && action.payload.basketData) {
+                return action.payload.basketData;
+            }
 
+            return state;
         default:
             return state;
     }

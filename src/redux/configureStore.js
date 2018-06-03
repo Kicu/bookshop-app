@@ -3,7 +3,8 @@ import thunk from 'redux-thunk';
 
 import search from './modules/search';
 import books from './modules/books';
-import basket from './modules/basket';
+import basket, { basketStorageMiddleware } from './modules/basket';
+import storageHelper from '../helpers/storage';
 
 const reducer = combineReducers({
     search,
@@ -13,7 +14,10 @@ const reducer = combineReducers({
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const enhancer = composeEnhancers(applyMiddleware(thunk));
+const enhancer = composeEnhancers(applyMiddleware(
+    thunk,
+    basketStorageMiddleware(storageHelper),
+));
 
 function configureStore() {
     const store = createStore(reducer, enhancer);

@@ -1,4 +1,4 @@
-import { ADD_TO_BASKET, REMOVE_FROM_BASKET } from './actionTypes';
+import { ADD_TO_BASKET, REMOVE_FROM_BASKET, LOAD_BASKET_DATA } from './actionTypes';
 
 function addToBasket(bookId) {
     return {
@@ -14,7 +14,14 @@ function removeFromBasket(bookId) {
     }
 }
 
+function loadBasketData() {
+    return {
+        type: LOAD_BASKET_DATA
+    }
+}
+
 export {
     addToBasket,
-    removeFromBasket
+    removeFromBasket,
+    loadBasketData
 }

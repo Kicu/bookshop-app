@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { fetchFeatured, getFeaturedBooks } from '../redux/modules/featured/index';
+import { fetchFeatured, getFeaturedBooks } from '../redux/modules/books';
 
 import BookList from '../components/BookList';
 

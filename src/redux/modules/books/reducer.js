@@ -1,22 +1,21 @@
-import keyBy from 'lodash.keyby';
+import { combineReducers } from 'redux';
+import byIdReducer, { getByIds } from './byId';
+import featuredReducer, { getFeatured } from './featured';
 
-import { FETCH_FEATURED_SUCCESS } from '../featured/actionTypes';
-import { FETCH_BY_CATEGORY_SUCCESS } from '../byCategory/actionTypes';
+const booksReducer = combineReducers({
+    featured: featuredReducer,
+    byId: byIdReducer
+});
 
-function booksReducer(state = {}, action) {
-    switch (action.type) {
-        case FETCH_BY_CATEGORY_SUCCESS:
-            return Object.assign({}, state, keyBy(action.payload.books, 'id'));
-        case FETCH_FEATURED_SUCCESS:
-            return Object.assign({}, state, keyBy(action.payload.featured, 'id'));
-        default:
-            return state;
-    }
-}
+const getFeaturedBooks = (state) => {
+    const featuredIds = getFeatured(state.books.featured);
+    return getBooksByIds(state, featuredIds);
+};
 
-const getBooksByIds = (state, bookIds) => bookIds.map(bookId => state.books[bookId]);
+const getBooksByIds = (state, bookIds) => getByIds(state.books.byId, bookIds);
 
 export default booksReducer;
 export {
-    getBooksByIds
+    getBooksByIds,
+    getFeaturedBooks
 }

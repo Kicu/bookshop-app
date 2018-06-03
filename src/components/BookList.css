@@ -1,13 +1,13 @@
-.FeaturedList {
+.BookList {
     width: 100%;
 }
 
-.FeaturedList .FeaturedList-list {
+.BookList .BookList-list {
     display: flex;
     flex-wrap: wrap;
     list-style-type: none;
 }
 
-.FeaturedList .FeaturedList-list .FeaturedList-list-item {
+.BookList .BookList-list .BookList-list-item {
     margin: 0 10px 10px 0;
 }

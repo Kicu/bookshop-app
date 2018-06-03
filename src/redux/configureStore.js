@@ -3,10 +3,12 @@ import thunk from 'redux-thunk';
 
 import featuredReducer from './modules/featured';
 import byCategory from './modules/byCategory';
+import search from './modules/search';
 
 const reducer = combineReducers({
     featured: featuredReducer
-    byCategory
+    byCategory,
+    search
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

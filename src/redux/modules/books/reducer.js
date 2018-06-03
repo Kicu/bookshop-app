@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import byIdReducer, { getByIds } from './byId';
+import byIdReducer, { getByIds, getById } from './byId';
 import featuredReducer, { getFeatured } from './featured';
 import byCategoryReducer, { getByCategory } from './byCategory'
 
@@ -20,10 +20,12 @@ const getBooksByCategory = (state, category) => {
 };
 
 const getBooksByIds = (state, bookIds) => getByIds(state.books.byId, bookIds);
+const getBookById = (state, bookId) => getById(state.books.byId, bookId);
 
 export default booksReducer;
 export {
     getBooksByIds,
+    getBookById,
     getFeaturedBooks,
     getBooksByCategory
 }

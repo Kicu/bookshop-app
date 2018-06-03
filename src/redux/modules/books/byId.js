@@ -14,8 +14,10 @@ function byIdReducer(state = {}, action) {
 }
 
 const getByIds = (state, bookIds) => bookIds.map(bookId => state[bookId]);
+const getById = (state, bookId) => state[bookId];
 
 export default byIdReducer;
 export {
-    getByIds
+    getByIds,
+    getById
 }

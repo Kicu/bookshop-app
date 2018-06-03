@@ -2,10 +2,14 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
-import { getBasket, removeFromBasket } from '../redux/modules/basket';
+import { getBasket, removeFromBasket, loadBasketData } from '../redux/modules/basket';
 import { getBookById } from '../redux/modules/books';
 
 class Basket extends Component {
+    componentDidMount() {
+        this.props.loadBasketData();
+    }
+
     render() {
         const { basket, removeFromBasket } = this.props;
         if (!basket.length) {
@@ -31,24 +35,32 @@ class Basket extends Component {
 
 Basket.propTypes = {
     basket: PropTypes.array,
-    removeFromBasket: PropTypes.func
+    removeFromBasket: PropTypes.func,
+    loadBasketData: PropTypes.func
 };
 
 function mapState(state) {
-    const basket = getBasket(state).map(basketItem => {
-        const book = getBookById(state, basketItem.bookId);
-        return {
-            book,
-            quantity: basketItem.quantity
-        }
-    });
+    const basket = getBasket(state)
+        .map(basketItem => {
+            const book = getBookById(state, basketItem.bookId);
+            if (!book) {
+                return undefined;
+            }
+
+            return {
+                book,
+                quantity: basketItem.quantity
+            }
+        })
+        .filter(Boolean);
     return {
         basket
     };
 }
 
 const mapDispatch = {
-    removeFromBasket
+    removeFromBasket,
+    loadBasketData
 };
 
 export default connect(

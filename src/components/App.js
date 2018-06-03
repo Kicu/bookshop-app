@@ -8,6 +8,7 @@ import configureStore from '../redux/configureStore';
 import FeaturedList from '../screens/FeaturedList';
 import Categories from './Categories'
 import CategoryList from '../screens/CategoryList';
+import Search from '../components/Search';
 
 const store = configureStore();
 
@@ -20,6 +21,7 @@ class App extends Component {
                     <header className="App-header">
                         <h1 className="App-title">Bookshop!</h1>
                     </header>
+                    <Search/>
                     <Categories />
                     <Route path="/category/:category" component={CategoryList} />
                     <FeaturedList/>

@@ -1,4 +1,11 @@
-import { FETCH_FEATURED, FETCH_FEATURED_SUCCESS, FETCH_FEATURED_ERROR } from './actionTypes';
+import {
+    FETCH_FEATURED,
+    FETCH_FEATURED_SUCCESS,
+    FETCH_FEATURED_ERROR,
+    FETCH_BY_CATEGORY,
+    FETCH_BY_CATEGORY_ERROR,
+    FETCH_BY_CATEGORY_SUCCESS
+} from './actionTypes';
 
 import fakeApi from '../../../backend/fakeApi';
 
@@ -16,6 +23,21 @@ function fetchFeatured() {
     }
 }
 
+function fetchByCategory(category) {
+    return (dispatch) => {
+        dispatch({ type: FETCH_BY_CATEGORY });
+
+        fakeApi.getBooksByCategory(category)
+            .then(books => {
+                dispatch({ type: FETCH_BY_CATEGORY_SUCCESS, payload: { books } })
+            })
+            .catch(err => {
+                dispatch({ type: FETCH_BY_CATEGORY_ERROR, payload: { err } })
+            })
+    }
+}
+
 export {
+    fetchByCategory,
     fetchFeatured
 }

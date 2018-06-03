@@ -1,7 +1,6 @@
 import keyBy from 'lodash.keyby';
 
-import { FETCH_FEATURED_SUCCESS } from './actionTypes';
-import { FETCH_BY_CATEGORY_SUCCESS } from '../byCategory/actionTypes';
+import { FETCH_FEATURED_SUCCESS, FETCH_BY_CATEGORY_SUCCESS } from './actionTypes';
 
 function byIdReducer(state = {}, action) {
     switch (action.type) {

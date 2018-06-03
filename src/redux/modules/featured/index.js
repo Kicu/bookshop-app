@@ -1,5 +1,8 @@
-import reducer from './reducer';
+import reducer, { getFeaturedBooks } from './reducer';
 import { fetchFeatured } from './actions';
 
 export default reducer;
-export { fetchFeatured };
+export {
+    fetchFeatured,
+    getFeaturedBooks
+};

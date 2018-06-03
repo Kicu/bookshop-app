@@ -9,4 +9,9 @@ function byCategoryReducer(state = [], action) {
     }
 }
 
+const getBooksByCategory = (state) => state.byCategory;
+
 export default byCategoryReducer;
+export {
+    getBooksByCategory
+}

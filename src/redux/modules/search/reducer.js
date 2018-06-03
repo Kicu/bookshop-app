@@ -9,4 +9,9 @@ function searchReducer(state = [], action) {
     }
 }
 
+const getSearchResults = (state) => state.search;
+
 export default searchReducer;
+export {
+    getSearchResults
+}

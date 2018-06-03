@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { fetchFeatured } from '../redux/modules/featured/index';
+import { fetchFeatured, getFeaturedBooks } from '../redux/modules/featured/index';
 
 import BookList from '../components/BookList';
 
@@ -27,7 +27,7 @@ FeaturedList.propTypes = {
 
 function mapState(state) {
   return {
-    featured: state.featured,
+    featured: getFeaturedBooks(state),
   }
 }
 

@@ -1,13 +1,11 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 
-import featuredReducer from './modules/featured';
 import byCategory from './modules/byCategory';
 import search from './modules/search';
 import books from './modules/books';
 
 const reducer = combineReducers({
-    featured: featuredReducer
     byCategory,
     search,
     books

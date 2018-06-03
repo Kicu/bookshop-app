@@ -1,6 +1,9 @@
-import reducer, { getBooksByIds } from './reducer';
+import reducer, { getBooksByIds, getFeaturedBooks } from './reducer';
+import { fetchFeatured } from '../books/actions';
 
 export default reducer;
 export {
-    getBooksByIds
+    fetchFeatured,
+    getBooksByIds,
+    getFeaturedBooks
 }

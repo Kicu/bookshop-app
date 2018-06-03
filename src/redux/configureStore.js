@@ -3,10 +3,12 @@ import thunk from 'redux-thunk';
 
 import search from './modules/search';
 import books from './modules/books';
+import basket from './modules/basket';
 
 const reducer = combineReducers({
     search,
-    books
+    books,
+    basket
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

@@ -9,6 +9,7 @@ import FeaturedList from '../screens/FeaturedList';
 import Categories from './Categories'
 import CategoryList from '../screens/CategoryList';
 import Search from '../components/Search';
+import Basket from '../components/Basket';
 
 const store = configureStore();
 
@@ -25,6 +26,7 @@ class App extends Component {
                     <Categories />
                     <Route path="/category/:category" component={CategoryList} />
                     <FeaturedList/>
+                    <Basket/>
                 </div>
                 </Router>
             </Provider>

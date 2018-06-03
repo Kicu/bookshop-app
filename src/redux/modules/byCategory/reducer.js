@@ -1,3 +1,5 @@
+import { getBooksByIds } from '../books'
+
 import { FETCH_BY_CATEGORY_SUCCESS } from './actionTypes';
 
 function byCategoryReducer(state = [], action) {
@@ -9,7 +11,7 @@ function byCategoryReducer(state = [], action) {
     }
 }
 
-const getBooksByCategory = (state) => state.byCategory.map(bookId => state.books[bookId]);
+const getBooksByCategory = (state) => getBooksByIds(state, state.byCategory);
 
 export default byCategoryReducer;
 export {

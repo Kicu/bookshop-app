@@ -20,7 +20,7 @@ class CategoryList extends Component {
       return (
           <div className="FeaturedList">
               <div>{`${this.props.category} books:`}</div>
-              <BookList books={this.props.books} />
+              <BookList books={this.props.books} isLoading={this.props.isLoading} />
           </div>
       );
   }
@@ -29,6 +29,7 @@ class CategoryList extends Component {
 CategoryList.propTypes = {
     category: PropTypes.string,
     books: PropTypes.array,
+    isLoading: PropTypes.bool,
     fetchByCategory: PropTypes.func
 };
 
@@ -37,6 +38,7 @@ function mapState(state, ownProps) {
     return {
         category,
         books: getBooksByCategory(state),
+        isLoading: state.uiLoading.category
     }
 }
 

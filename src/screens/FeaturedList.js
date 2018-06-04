@@ -14,7 +14,7 @@ class FeaturedList extends Component {
   render() {
       return (
           <div className="FeaturedList">
-              <BookList books={this.props.featured} />
+              <BookList books={this.props.featured} isLoading={this.props.isLoading} />
           </div>
       );
   }
@@ -22,12 +22,14 @@ class FeaturedList extends Component {
 
 FeaturedList.propTypes = {
   featured: PropTypes.array,
+  isLoading: PropTypes.bool,
   fetchFeatured: PropTypes.func
 };
 
 function mapState(state) {
   return {
     featured: getFeaturedBooks(state),
+    isLoading: state.uiLoading.featured
   }
 }
 

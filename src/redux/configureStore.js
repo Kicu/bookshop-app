@@ -4,12 +4,15 @@ import thunk from 'redux-thunk';
 import search from './modules/search';
 import books from './modules/books';
 import basket, { basketStorageMiddleware } from './modules/basket';
+import uiLoading from './modules/uiLoading';
+
 import storageHelper from '../helpers/storage';
 
 const reducer = combineReducers({
     search,
     books,
-    basket
+    basket,
+    uiLoading
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

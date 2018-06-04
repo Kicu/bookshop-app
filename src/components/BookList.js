@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import './BookList.css';
 import Book from './Book';
+import isLoading from './isLoading';
 
 const BookList = ({ books }) => (
     <div className="BookList">
@@ -18,4 +19,4 @@ BookList.propTypes = {
     books: PropTypes.array,
 };
 
-export default BookList;
+export default isLoading(BookList);

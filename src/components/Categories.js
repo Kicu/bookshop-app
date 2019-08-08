@@ -26,7 +26,8 @@ class Categories extends Component {
 }
 
 Categories.propTypes = {
-    foo: PropTypes.object
+    featured: PropTypes.array,
+    fetchFeatured: PropTypes.func
 };
 
 export default Categories;
